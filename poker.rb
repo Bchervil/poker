@@ -4,3 +4,14 @@ class Card
 	SUITS = ['hearts', 'clubs', 'diamonds', 'spades']
 
 	attr_reader :rank, :suit, :face
+
+  def initialize(face, suit, rank)
+  		@face = face
+  		@suit = suit
+  		@rank = rank
+  	end
+
+  	def show
+  		@face + " " + @suit
+  	end
+  end
