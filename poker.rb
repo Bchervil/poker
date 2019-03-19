@@ -15,3 +15,9 @@ class Card
   		@face + " " + @suit
   	end
   end
+
+  class Deck
+
+	def initialize
+		@deck = Array.new
+	end
