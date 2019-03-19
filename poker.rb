@@ -48,3 +48,28 @@ class Card
 		end
 	end
 end
+class Hand
+	attr_reader :bestHand
+
+	def initialize
+		@hand = Array.new
+		@handAnalysis = Array.new(13,0)  
+		@suitAnalysis = Hash.new(0) 
+		@pokerRanking = {'Royal Flush' => 1, 'Straight Flush' => 2,
+						 'Four of a Kind' => 3, 'Full House' => 4,
+					     'Flush' => 5, 'Straight' => 6 ,
+					     'Triples' => 7, 'Two Pairs' => 8,
+					     'Pair' => 9, 'High Card' => 10}
+		@bestHand = {:handRank => 99, :cardRank => 0, :rankTxt => ''}
+
+	end
+
+	def updateBestHand(pokerRank, cardRank)
+		if @bestHand[:handRank] > @pokerRanking[pokerRank]
+			@bestHand.merge!({:handRank => @pokerRanking[pokerRank],
+				:cardRank => cardRank, :rankTxt => pokerRank})
+		elsif @bestHand[:handRank] == @pokerRanking[pokerRank] &&
+		      @bestHand[:cardRank] < cardRank
+			@bestHand[:cardRank] = cardRank
+		end
+	end
