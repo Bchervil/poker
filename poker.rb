@@ -34,3 +34,17 @@ class Card
 	end
 
 	public
+	  def shuffle
+		createDeck
+		@deck.shuffle!
+	end
+
+	def drawCard
+		#remove top card from deck and pass back
+		if @deck.empty?
+			raise "No Cards Left in Deck!" #should never happen
+		else
+			@deck.delete_at(0)
+		end
+	end
+end
