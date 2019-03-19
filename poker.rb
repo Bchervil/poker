@@ -21,3 +21,16 @@ class Card
 	def initialize
 		@deck = Array.new
 	end
+	  def createDeck
+		# fill deck
+		@deck.clear
+		Card::SUITS.each do |suit|
+			rank = 1
+			Card::FACES.each do |face|
+				@deck << Card.new(face.upcase, suit.upcase, rank)
+				rank += 1
+			end
+		end
+	end
+
+	public
