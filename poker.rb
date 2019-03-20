@@ -255,7 +255,7 @@ class Fivecard
 
 end
 
-# Play Game
+# Play Game at its basic form
 game = Fivecard.new
 
 
